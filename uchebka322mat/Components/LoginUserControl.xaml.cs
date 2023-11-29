@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +22,45 @@ namespace uchebka322mat.Components
     /// </summary>
     public partial class LoginUserControl : UserControl
     {
+        private readonly string connectionString = "101";
         public LoginUserControl()
         {
             InitializeComponent();
         }
-        private void EntryBC(Object )
+        private void EntryBC(object sender, RoutedEventArgs e)
         {
-            string password = PasswordBox.
+         string cipher = PasswordPB.Text;
+        if (!string.IsNullOrEmpty(cipher))
+            {
+                bool IsValidCipher = checkCipherDataBase(cipher);
+                if (IsValidCipher)
+                {
+                    MessageBox.Show("Вы вошли!");
+                }
+                else
+                {
+                    MessageBox.Show("Неверный Таб.Номер", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+
+            }
+            else
+            {
+                    MessageBox.Show("Пожалуйста, введите Таб.Номер", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private bool checkCipherDataBase(string cipher)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "select count(*) from Sotrudnik where Tab_number = @Chiher";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Chiher", "Tab_number");
+                connection.Open();
+                int count = (int)command.ExecuteScalar();
+                return count > 0;
+            }
+
         }
     }
 }

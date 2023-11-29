@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using uchebka322mat.Components;
 
 namespace uchebka322mat
 {
@@ -23,6 +24,7 @@ namespace uchebka322mat
         public MainWindow()
         {
             InitializeComponent();
+            Frame.NavigationService.Navigate(new LoginUserControl());
         }
     }
 }

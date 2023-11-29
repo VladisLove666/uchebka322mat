@@ -8,10 +8,10 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid >
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Вход по Шифру" HorizontalAlignment="Left" Margin="5"/>
-            <PasswordBox x:Name="PasswordPB" HorizontalAlignment="Stretch" Margin="5"/>
-            <Button Content="Вход" HorizontalAlignment="Center" Margin="5" Click="EntryBC"/>
-            <Button Content="Вход как гость" HorizontalAlignment="Center" Margin="5" Click="GostBC"/>
+            <Label Content="Вход по Таб.номеру" HorizontalAlignment="Left" Margin="5"/>
+            <TextBox x:Name="PasswordPB" HorizontalAlignment="Stretch" Margin="5"/>
+            <Button x:Name="Entry" Content="Вход" HorizontalAlignment="Center" Margin="5" Click="EntryBC"/>
+            <Button Content="Вход как гость" HorizontalAlignment="Center" Margin="5"/>
         </StackPanel>  
     </Grid>
 </UserControl>
