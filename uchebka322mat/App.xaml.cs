@@ -14,6 +14,6 @@ namespace uchebka322mat
     /// </summary>
     public partial class App : Application
     {
-        public static TehnikumshamatEntities2 db = new TehnikumshamatEntities2();
+    
     }
 }
