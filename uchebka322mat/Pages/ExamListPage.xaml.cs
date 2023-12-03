@@ -13,24 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using uchebka322mat.Components;
-using uchebka322mat.Pages;
 
-namespace uchebka322mat
+namespace uchebka322mat.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ExamListPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ExamListPage : Page
     {
-        public MainWindow()
+        public ExamListPage()
         {
             InitializeComponent();
-            App.MainFrame = MainFrame;
-            MainFrame.Navigate(new LoginPage());
-        }
-        private void ExitUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new LoginPage());
+            foreach (Exemp exam in App.db.Exemp.ToArray())
+            {
+                ExamsWp.Children.Add(new ExamenUserControl(exam));
+            }
         }
     }
 }

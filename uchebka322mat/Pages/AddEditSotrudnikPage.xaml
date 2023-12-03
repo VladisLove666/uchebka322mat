@@ -1,0 +1,41 @@
+﻿<Page x:Class="uchebka322mat.Pages.AddEditSotrudnikPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:uchebka322mat.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditSotrudnikPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+            <TextBlock FontSize="18" TextAlignment="Center">Сотрудник</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 15 0 0">
+                <TextBlock>Таб. номер</TextBlock>
+                <TextBox x:Name="TabNomerTb" Width="120" Text="{Binding TabNomer}" Margin="5 0 0 0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 0 0">
+                <TextBlock>Кафедра шифр</TextBlock>
+                <ComboBox x:Name="KafedraCb" Width="120" DisplayMemberPath="Shifr" Margin="5 0 0 0"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 0 0">
+                <TextBlock>Фамилия</TextBlock>
+                <TextBox x:Name="FamiliaTb" Width="120" Text="{Binding Familia}" Margin="5 0 0 0" TextChanged="FamiliaTb_TextChanged"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 0 0">
+                <TextBlock>Должность</TextBlock>
+                <ComboBox x:Name="DolgnostCb" Width="120" Margin="5 0 0 0" SelectionChanged="DolgnostCb_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 0 0">
+                <TextBlock>Зарплата</TextBlock>
+                <TextBox x:Name="ZarplataTb" Width="120" Text="{Binding Zarplata}" Margin="5 0 0 0" TextChanged="ZarplataTb_TextChanged"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 0 0">
+                <TextBlock>Таб. номер шефа</TextBlock>
+                <ComboBox x:Name="ShefCb" Width="120" DisplayMemberPath="TabNomer" Margin="5 0 0 0"></ComboBox>
+            </StackPanel>
+            <Button x:Name="EnterBtn" Margin="0 15 0 0" Width="100" Click="EnterBtn_Click">Сохранить</Button>
+        </StackPanel>
+    </Grid>
+</Page>

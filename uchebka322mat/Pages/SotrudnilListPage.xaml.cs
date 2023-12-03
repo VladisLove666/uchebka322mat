@@ -13,24 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using uchebka322mat.Components;
-using uchebka322mat.Pages;
 
-namespace uchebka322mat
+namespace uchebka322mat.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SotrudnilListPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SotrudnilListPage : Page
     {
-        public MainWindow()
+        public static WrapPanel SotrydniksWrapPanell;
+        public SotrudnilListPage()
         {
             InitializeComponent();
-            App.MainFrame = MainFrame;
-            MainFrame.Navigate(new LoginPage());
-        }
-        private void ExitUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new LoginPage());
+            foreach (Sotrudnik sotrudnik in App.db.Sotrudnik.ToArray())
+            {
+                SotrudniksWp.Children.Add(new SotrudnikUserControl(sotrudnik));
+            }
+            SotrydniksWrapPanell = SotrudniksWp;
         }
     }
 }

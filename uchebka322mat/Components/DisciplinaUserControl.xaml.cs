@@ -12,25 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using uchebka322mat.Components;
-using uchebka322mat.Pages;
 
-namespace uchebka322mat
+namespace uchebka322mat.Components
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для DisciplinaUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DisciplinaUserControl : UserControl
     {
-        public MainWindow()
+        public DisciplinaUserControl(Disciplina disciplina)
         {
             InitializeComponent();
-            App.MainFrame = MainFrame;
-            MainFrame.Navigate(new LoginPage());
-        }
-        private void ExitUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new LoginPage());
+            DataContext = disciplina;
         }
     }
 }

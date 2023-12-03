@@ -12,25 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using uchebka322mat.Components;
 using uchebka322mat.Pages;
 
-namespace uchebka322mat
+namespace uchebka322mat.Components
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для KafedraUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class KafedraUserControl : UserControl
     {
-        public MainWindow()
+        private Cafedra kafedra;
+        public KafedraUserControl(Cafedra kafedra)
         {
             InitializeComponent();
-            App.MainFrame = MainFrame;
-            MainFrame.Navigate(new LoginPage());
+            this.kafedra = kafedra;
+            DataContext = kafedra;
         }
-        private void ExitUserBtn_Click(object sender, RoutedEventArgs e)
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new LoginPage());
+            App.MainFrame.Navigate(new AddEditKafedraPage(kafedra));
         }
     }
 }

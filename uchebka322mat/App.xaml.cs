@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using uchebka322mat.Components;
 
 namespace uchebka322mat
@@ -14,6 +15,8 @@ namespace uchebka322mat
     /// </summary>
     public partial class App : Application
     {
-    
+        public static Frame MainFrame;
+        public static  db = new ();
+        public static Sotrudnik User;
     }
 }
